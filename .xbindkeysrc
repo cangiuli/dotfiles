@@ -1,0 +1,5 @@
+"cmus-remote -u"
+c:172 # XF86AudioPlay
+
+"cmus-remote -s"
+c:174 # XF86AudioStop
