@@ -5,7 +5,6 @@ use POSIX 'strftime';
 my @files = qw(
   emacs
   ghci
-  git
   gitconfig
   ssh
   vim
