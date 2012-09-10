@@ -6,11 +6,12 @@ my @files = qw(
   emacs
   ghci
   gitconfig
-  ssh
-  vim
   vimrc
   xbindkeysrc
   zshrc);
+my @dirs = qw(
+  ssh
+  vim);
 
 my $command = shift;
 my $dir = shift;
@@ -25,13 +26,21 @@ sub sysprint {
 if ($command eq 'push') {
   $pushdir = $dir if $dir;
   sysprint "mkdir $pushdir";
-  foreach my $file (@files) {
-    sysprint "cp -r ~/.$file $pushdir";
-    sysprint "cp -r $file ~/.$file";
+  foreach (@files) {
+    sysprint "cp ~/.$_ $pushdir";
+    sysprint "cp $_ ~/.$_";
+  }
+  foreach (@dirs) {
+    sysprint "cp -r ~/.$_ $pushdir";
+    sysprint "cp -r $_/* ~/.$_";
   }
 } elsif ($command eq 'pull') {
-  foreach my $file (@files) {
-    sysprint "cp -r ~/.$file $file";
+  foreach (@files) {
+    sysprint "cp ~/.$_ $_";
+  }
+  foreach (@dirs) {
+    sysprint "rm -r $_";
+    sysprint "cp -r ~/.$_ $_";
   }
 } else {
   print <<END
