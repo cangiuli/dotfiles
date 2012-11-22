@@ -1,6 +1,8 @@
 " .vimrc
 " Carlo Angiuli
 
+call pathogen#infect()
+
 set nocompatible      " no vi compatibility
 set ttyfast           " smoother scrolling
 set showcmd           " shows command in status line

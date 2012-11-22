@@ -1,2 +1,3 @@
 HashKnownHosts no
 VisualHostKey yes
+GSSAPIAuthentication no
