@@ -72,13 +72,5 @@ hi link twelfFVar              twelfFreeVariableFace
 hi link twelfCurly             twelfCurlyFace
 hi link twelfSquare            twelfSquareFace
 
-" Indentation
-
-" Folds
-"syn region myFold start="%{" end="}%" transparent fold 
-"syn sync fromstart
-
-set foldmethod=syntax
-set foldminlines=3
 " Set the current syntax name
 let b:current_syntax = "twelf"
