@@ -1,3 +1,6 @@
 [user]
 	name = Carlo Angiuli
 	email = carlo@carloangiuli.com
+
+[color]
+	ui = true
