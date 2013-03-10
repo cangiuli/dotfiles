@@ -48,3 +48,14 @@ endif
 " comments are dark green as nature intended, instead of bright cyan
 hi Comment ctermfg=DarkGreen
 
+" in tex files, default to making with pdflatex
+au FileType tex call TexSettings()
+function TexSettings()
+  if !(filereadable('Makefile') || filereadable('makefile'))
+    setlocal makeprg=pdflatex\ %
+  end
+endfunction
+
+" enable matchit
+filetype plugin on
+runtime macros/matchit.vim
