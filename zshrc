@@ -36,8 +36,8 @@ export PATH=/opt/local/bin:$PATH # local coq install
 # functions
 # other afs incantations: fs sa, fs la
 # aklog club.cc.cmu.edu
-clogic () {
-  aklog andrew.cmu.edu && pushd && cd /afs/andrew/course/15/317
+sigbovik () {
+  aklog club.cc.cmu.edu && pushd /afs/club.cc.cmu.edu/user/bovik/www/sigbovik
 }
 fliptable() {
   echo "（╯°□°）╯︵ ┻━┻"
