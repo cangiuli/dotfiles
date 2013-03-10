@@ -4,3 +4,6 @@
 
 [color]
 	ui = true
+
+[alias]
+	vimdiff = difftool --tool=vimdiff --no-prompt
