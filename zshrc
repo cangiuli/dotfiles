@@ -22,6 +22,7 @@ alias objdumpi='objdump -Mintel_syntax'
 alias scheme='petite'
 alias emacs='emacs -nw'
 alias sl='sl -e'
+alias gitvimdiff='git difftool --tool=vimdiff --no-prompt'
 
 # environment
 PROMPT='%n@%m:%~$ '

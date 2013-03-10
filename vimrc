@@ -40,6 +40,11 @@ set list!
 " terminal escape sequences must be typed quickly, to make ^[O bearable
 set timeout timeoutlen=5000 ttimeoutlen=100
 
+" use more colors unless your terminal is awful
+if &t_Co == 8 && $TERM !~# '^linux'
+  set t_Co=16
+endif
+
 " comments are dark green as nature intended, instead of bright cyan
 hi Comment ctermfg=DarkGreen
 
