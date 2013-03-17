@@ -1,5 +1,11 @@
+"cmus-remote -n"
+c:171 # XF86AudioNext
+
 "cmus-remote -u"
 c:172 # XF86AudioPlay
+
+"cmus-remote -r"
+c:173 # XF86AudioPrev
 
 "cmus-remote -s"
 c:174 # XF86AudioStop

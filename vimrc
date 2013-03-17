@@ -21,6 +21,7 @@ set visualbell t_vb=  " disable bell/flash
 
 " bindings
 nmap <F5> :make<CR><CR><CR>
+nnoremap <C-L> :nohlsearch<CR><C-L>
 
 " filetypes
 au BufNewFile,BufRead *.tut,*.req setf tutch             " Tutch
