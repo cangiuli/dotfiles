@@ -7,3 +7,5 @@
 
 [alias]
 	vimdiff = difftool --tool=vimdiff --no-prompt
+	co = checkout
+	ci = commit
