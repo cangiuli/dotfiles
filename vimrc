@@ -29,6 +29,7 @@ au BufNewFile,BufRead *.elf,*.thm,sources.cfg setf twelf " Twelf
 au BufNewFile,BufRead *.clf setf twelf                   " Celf
 au BufNewFile,BufRead *.w setf scheme                    " ChezWEB
 au BufNewFile,BufRead *.v setf coq                       " Coq, not Verilog
+au BufNewFile,BufRead *.agda setf agda                   " Agda
 
 " special filetype behaviors
 au FileType make setlocal noexpandtab    " use literal tabs in Makefiles
