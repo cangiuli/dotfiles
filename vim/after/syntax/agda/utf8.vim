@@ -34,7 +34,7 @@ inoremap <buffer> \_= ₌
 inoremap <buffer> \_( ₍
 inoremap <buffer> \_i ᵢ
 inoremap <buffer> \_j ⱼ
-""inoremap <buffer> \_) ₎
+inoremap <buffer> \_) ₎
 
 " Arrows
 inoremap <buffer> -> →
