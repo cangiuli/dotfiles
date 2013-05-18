@@ -1,3 +1,5 @@
+" agda_unicode.vim - LaTeX-style bindings for Unicode input
+
 " Superscripts
 inoremap <buffer> ^0 ⁰
 inoremap <buffer> ^1 ¹
