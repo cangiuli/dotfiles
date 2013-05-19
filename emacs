@@ -1,7 +1,7 @@
 ; Load evil.
-(add-to-list 'load-path "~/.emacs.d/evil")
-(require 'evil)
-(evil-mode 1)
+;(add-to-list 'load-path "~/.emacs.d/evil")
+;(require 'evil)
+;(evil-mode 1)
 
 ; Stop emacs from spewing files everywhere.
 (setq make-backup-files nil)
@@ -15,3 +15,6 @@
 (global-set-key (kbd "C-c ,") 'agda2-goal-and-context)
 (global-set-key (kbd "C-c .") 'agda2-goal-and-context-and-inferred)
 
+
+(load-file (let ((coding-system-for-read 'utf-8))
+                (shell-command-to-string "agda-mode locate")))
