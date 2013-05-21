@@ -15,10 +15,11 @@ function! ReloadKeywords()
 endfunction
 
 " Check buffer in Agda
-function! CheckBuffer()
+function! CheckBuffer(allowUnsolved)
   write
+  let l:arg = a:allowUnsolved ? '--allow-unsolved-metas ' : ''
   " TODO what directory should we call Agda from?
-  let s:transcript = system(s:agda . ' --vim --allow-unsolved-metas ' . expand('%'))
+  let s:transcript = system(s:agda . ' --vim ' . l:arg . expand('%'))
   if v:shell_error
     echo s:transcript
   endif
@@ -30,4 +31,5 @@ call ReloadKeywords()
 
 " Bindings:
 " nnoremap ,rk :call ReloadKeywords()<CR>
-nnoremap <F5> :call CheckBuffer()<CR>
+nnoremap <F5> :call CheckBuffer(1)<CR>
+nnoremap <F6> :call CheckBuffer(0)<CR>

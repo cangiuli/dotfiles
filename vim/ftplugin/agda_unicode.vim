@@ -38,8 +38,9 @@ inoremap <buffer> \_i ᵢ
 inoremap <buffer> \_j ⱼ
 inoremap <buffer> \_) ₎
 
-" Arrows
+" Arrows (but don't delay inserting comments)
 inoremap <buffer> -> →
+inoremap <buffer> -- --
 inoremap <buffer> <-- ←
 inoremap <buffer> <--> ↔
 inoremap <buffer> ==> ⇒
@@ -96,7 +97,7 @@ inoremap <buffer> \equiv ≡
 inoremap <buffer> \exists ∃
 inoremap <buffer> \flat ♭
 inoremap <buffer> \forall ∀
-inoremap <buffer> \ge ≥
+inoremap <buffer> \geq ≥
 inoremap <buffer> \iff ⇔
 inoremap <buffer> \impliedby ⇐
 inoremap <buffer> \implies ⇒
@@ -106,7 +107,7 @@ inoremap <buffer> \int ∫
 inoremap <buffer> \land ∧
 inoremap <buffer> \langle ⟨
 inoremap <buffer> \ldots …
-inoremap <buffer> \le ≤
+inoremap <buffer> \leq ≤
 inoremap <buffer> \leadsto ⇝
 inoremap <buffer> \leftarrow ←
 inoremap <buffer> \leftrightarrow ↔
@@ -118,6 +119,7 @@ inoremap <buffer> \models ⊨
 inoremap <buffer> \nearrow ↗
 inoremap <buffer> \neg ¬
 inoremap <buffer> \neq ≠
+inoremap <buffer> \nequiv ≢
 inoremap <buffer> \ni ∋
 inoremap <buffer> \not\cong ≇
 inoremap <buffer> \not\equiv ≢
