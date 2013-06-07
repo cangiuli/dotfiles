@@ -13,6 +13,8 @@ autoload -Uz compinit
 compinit
 # End of lines added by compinstall
 
+setopt nullglob
+
 # aliases
 alias ls='ls --color=auto'
 alias grep='grep --color=auto'
