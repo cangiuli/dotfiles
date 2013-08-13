@@ -18,6 +18,7 @@ syntax on             " syntax highlighting
 set foldmethod=marker " allow persistent folds
 set hlsearch          " highlight search matches
 set visualbell t_vb=  " disable bell/flash
+filetype indent on    " use filetype-specific indentation settings
 
 " bindings
 nmap <F5> :make<CR><CR><CR>
