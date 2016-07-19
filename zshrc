@@ -18,12 +18,11 @@ setopt nullglob
 # aliases
 alias ls='ls --color=auto'
 alias grep='grep --color=auto'
-alias compile='gcc -std=c99 -Wall -Wextra -pedantic'
-alias vmi='vim'
 alias objdumpi='objdump -Mintel_syntax'
 alias scheme='petite'
 alias emacs='emacs -nw'
 alias sl='sl -e'
+alias gvim="gvim 2>/dev/null"
 
 # environment
 PROMPT='%n@%m:%~$ '

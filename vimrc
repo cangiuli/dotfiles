@@ -21,7 +21,7 @@ set visualbell t_vb=  " disable bell/flash
 filetype indent on    " use filetype-specific indentation settings
 
 " bindings
-nmap <F5> :make<CR><CR><CR>
+nmap <F5> :make!<CR><CR><CR>
 nnoremap <C-L> :nohlsearch<CR><C-L>
 
 " filetypes
@@ -62,3 +62,16 @@ endfunction
 " enable matchit
 filetype plugin on
 runtime macros/matchit.vim
+
+" text objects for inline math
+onoremap <silent> a$ :<C-u>normal F$vf$<CR>
+onoremap <silent> i$ :<C-u>normal T$vt$<CR>
+
+" gvim-specific settings
+au GuiEnter * set visualbell t_vb=
+set guioptions-=m
+set guioptions-=r
+set guioptions-=T
+if has("gui_running")
+  colorscheme solarized
+endif

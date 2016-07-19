@@ -31,5 +31,5 @@ call ReloadKeywords()
 
 " Bindings:
 " nnoremap ,rk :call ReloadKeywords()<CR>
-nnoremap <F5> :call CheckBuffer(1)<CR>
+"nnoremap <F5> :call CheckBuffer(1)<CR>
 nnoremap <F6> :call CheckBuffer(0)<CR>
