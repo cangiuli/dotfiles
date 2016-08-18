@@ -31,6 +31,8 @@ au BufNewFile,BufRead *.clf setf twelf                   " Celf
 au BufNewFile,BufRead *.w setf scheme                    " ChezWEB
 au BufNewFile,BufRead *.v setf coq                       " Coq, not Verilog
 au BufNewFile,BufRead *.agda setf agda                   " Agda
+au BufNewFile,BufRead *.smt2 setf lisp                   " SMT 2
+au BufNewFile,BufRead *.sig setf sml                     " SML
 
 " special filetype behaviors
 au FileType make setlocal noexpandtab    " use literal tabs in Makefiles
@@ -72,6 +74,7 @@ au GuiEnter * set visualbell t_vb=
 set guioptions-=m
 set guioptions-=r
 set guioptions-=T
+set guioptions-=L
 if has("gui_running")
   colorscheme solarized
 endif
