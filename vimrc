@@ -60,6 +60,7 @@ function TexSettings()
   if !(filereadable('Makefile') || filereadable('makefile'))
     setlocal makeprg=pdflatex\ %
   end
+  setlocal indentexpr=
 endfunction
 
 " enable matchit
