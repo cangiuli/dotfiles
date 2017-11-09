@@ -33,6 +33,7 @@ au BufNewFile,BufRead *.v setf coq                       " Coq, not Verilog
 au BufNewFile,BufRead *.agda setf agda                   " Agda
 au BufNewFile,BufRead *.smt2 setf lisp                   " SMT 2
 au BufNewFile,BufRead *.sig setlocal ft=sml              " SML
+au BufNewFile,BufRead *.ctt setf cubicaltt               " cubicaltt
 
 " special filetype behaviors
 au FileType make setlocal noexpandtab    " use literal tabs in Makefiles
