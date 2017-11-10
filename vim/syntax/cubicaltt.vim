@@ -1,7 +1,7 @@
 " Vim syntax file
 " Language:     cubicaltt
 " Author:       Carlo Angiuli
-" Last Change:  2017 November 6
+" Last Change:  2017 November 10
 "
 " For https://github.com/mortberg/cubicaltt
 "
@@ -15,7 +15,7 @@ endif
 syn keyword cttKeyword hdata data import mutual let in split with module where
 syn keyword cttKeyword opaque transparent[] transparent_all
 syn keyword cttOperator U PathP comp transport fill Glue glue unglue Id idC idJ
-syn match   cttOperator '[:=|*_<>\-@]\|->\|\\\|\\/\|/\\'
+syn match   cttOperator '[:=|*_<>\-@]\|->\|\\/\|/\\\|\\'
 syn keyword cttUndef undefined
 
 syn region cttComment start="--" end="$"
