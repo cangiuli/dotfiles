@@ -56,9 +56,13 @@ hi Comment ctermfg=DarkGreen
 
 " in tex files, default to making with pdflatex
 au FileType tex call TexSettings()
-function TexSettings()
-  if !(filereadable('Makefile') || filereadable('makefile'))
-    setlocal makeprg=pdflatex\ %
+function! TexSettings()
+  if (v:version < 800)
+    if !(filereadable('Makefile') || filereadable('makefile'))
+      setlocal makeprg=pdflatex\ %
+    endif
+  else
+    nmap <buffer> <F5> :call AsyncCmd('make')<CR>
   end
   setlocal indentexpr=
 endfunction
@@ -80,3 +84,22 @@ set guioptions-=L
 if has("gui_running")
   colorscheme solarized
 endif
+
+" vim 8+: asynchronous jobs
+function! AsyncCmd(cmd)
+  if (v:version < 800 || exists('g:asyncBuf'))
+    return
+  endif
+  let j = job_start(a:cmd, {'exit_cb': 'AsyncCmdExit',
+    \'out_io': 'buffer','out_msg': 0})
+  let g:asyncBuf = ch_getbufnr(j, 'out')
+endfunction
+
+function! AsyncCmdExit(j,status)
+  echo 'Exited with status '.a:status
+  if (a:status)
+    execute 'botright 10 split +buffer'.g:asyncBuf
+    normal G
+  endif
+  unlet g:asyncBuf
+endfunction
