@@ -1,24 +1,26 @@
 " .vimrc
 " Carlo Angiuli
 
-call pathogen#infect()
+set ttyfast                  " smoother scrolling
+set showcmd                  " shows command in status line
+set background=dark          " brighter colors for dark terminals
+set expandtab                " don't use actual tabs
+set tabstop=2                " tabs are two spaces
+set shiftwidth=2             " auto-tabs are two spaces
+set textwidth=80             " break lines after 80 cols
+set showmatch                " highlight matching brackets
+set ruler                    " display position
+set smartindent              " indent in a C-like fashion
+syntax on                    " syntax highlighting
+set foldmethod=marker        " allow persistent folds
+set hlsearch                 " highlight search matches
+set belloff=all              " disable bell/flash
+filetype indent on           " use filetype-specific indentation
+filetype plugin on           " use filetype-specific plugins
 
-set nocompatible      " no vi compatibility
-set ttyfast           " smoother scrolling
-set showcmd           " shows command in status line
-set background=dark   " brighter colors for dark terminals
-set expandtab         " don't use actual tabs
-set tabstop=2         " tabs are two spaces
-set shiftwidth=2      " auto-tabs are two spaces
-set tw=80             " break lines after 80 cols
-set showmatch         " highlight matching brackets
-set ruler             " display position
-set smartindent       " indent in a C-like fashion
-syntax on             " syntax highlighting
-set foldmethod=marker " allow persistent folds
-set hlsearch          " highlight search matches
-set visualbell t_vb=  " disable bell/flash
-filetype indent on    " use filetype-specific indentation settings
+packadd! matchit
+let g:netrw_banner=0         " netrw: no banner
+let g:netrw_liststyle=3      " netrw: tree view
 
 " bindings
 nmap <F5> :make!<CR><CR><CR>
@@ -32,7 +34,7 @@ au BufNewFile,BufRead *.w setf scheme                    " ChezWEB
 au BufNewFile,BufRead *.v setf coq                       " Coq, not Verilog
 au BufNewFile,BufRead *.agda setf agda                   " Agda
 au BufNewFile,BufRead *.smt2 setf lisp                   " SMT 2
-au BufNewFile,BufRead *.sig setlocal ft=sml              " SML
+au BufNewFile,BufRead *.sig,*.fun setf sml               " SML
 au BufNewFile,BufRead *.ctt setf cubicaltt               " cubicaltt
 au BufNewFile,BufRead *.prl setf redprl                  " RedPRL
 
@@ -68,16 +70,12 @@ function! TexSettings()
   setlocal indentexpr=
 endfunction
 
-" enable matchit
-filetype plugin on
-runtime macros/matchit.vim
-
 " text objects for inline math
 onoremap <silent> a$ :<C-u>normal F$vf$<CR>
 onoremap <silent> i$ :<C-u>normal T$vt$<CR>
 
 " gvim-specific settings
-au GuiEnter * set visualbell t_vb=
+au GuiEnter * set belloff=all
 set guioptions-=m
 set guioptions-=r
 set guioptions-=T
@@ -97,10 +95,12 @@ function! AsyncCmd(cmd)
 endfunction
 
 function! AsyncCmdExit(j,status)
-  echo 'Exited with status '.a:status
   if (a:status)
     execute 'botright 10 split +buffer'.g:asyncBuf
     normal G
+  else
+    execute 'bwipeout '.g:asyncBuf
   endif
+  echo 'Exited with status '.a:status
   unlet g:asyncBuf
 endfunction
