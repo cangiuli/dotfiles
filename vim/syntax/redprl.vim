@@ -1,7 +1,7 @@
 " Vim syntax file
 " Language:     RedPRL
 " Author:       Carlo Angiuli
-" Last Change:  2017 November 20
+" Last Change:  2017 December 5
 
 if exists("b:current_syntax")
   finish
@@ -24,7 +24,7 @@ syn keyword redExpr com gcom lmax
 syn match   redExpr '[$*!@=+]\|->\|\~>\|<\~'
 
 syn keyword redTac auto auto-step case cut-lemma elim else exact fresh goal
-syn keyword redTac hyp id lemma let match of print progress
+syn keyword redTac hyp id lemma let claim match of print progress
 syn keyword redTac query rec reduce refine repeat rewrite rewrite-hyp symmetry
 syn keyword redTac then unfold use with
 syn match   redTac '[;`]'
@@ -34,6 +34,8 @@ syn match   redSeq '>>'
 
 syn region  redComm start="//" end="$"
 
+syn match   redMesg '\[\(Info\|Output\|Warning\|Error\|Trace\)\]'
+
 hi def link redDecl Structure
 hi def link redSort Identifier
 hi def link redHole Error
@@ -42,5 +44,6 @@ hi def link redExpr Identifier
 hi def link redTac  Statement
 hi def link redSeq  Normal
 hi def link redComm Comment
+hi def link redMesg Structure
 
 let b:current_syntax = "redprl"
