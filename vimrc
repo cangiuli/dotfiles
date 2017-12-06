@@ -18,13 +18,15 @@ set belloff=all              " disable bell/flash
 filetype indent on           " use filetype-specific indentation
 filetype plugin on           " use filetype-specific plugins
 
-packadd! matchit
-let g:netrw_banner=0         " netrw: no banner
-let g:netrw_liststyle=3      " netrw: tree view
-
 " bindings
 nmap <F5> :make!<CR><CR><CR>
 nnoremap <C-L> :nohlsearch<CR><C-L>
+
+packadd! matchit
+let g:netrw_banner=0         " netrw: no banner
+let g:netrw_liststyle=3      " netrw: tree view
+let g:redprl_path = $HOME . '/sml-redprl/bin/redprl'
+au FileType redprl nnoremap <F5> :RedPRL<CR>
 
 " filetypes
 au BufNewFile,BufRead *.tut,*.req setf tutch             " Tutch
@@ -36,7 +38,6 @@ au BufNewFile,BufRead *.agda setf agda                   " Agda
 au BufNewFile,BufRead *.smt2 setf lisp                   " SMT 2
 au BufNewFile,BufRead *.sig,*.fun setf sml               " SML
 au BufNewFile,BufRead *.ctt setf cubicaltt               " cubicaltt
-au BufNewFile,BufRead *.prl setf redprl                  " RedPRL
 
 " special filetype behaviors
 au FileType make setlocal noexpandtab    " use literal tabs in Makefiles
