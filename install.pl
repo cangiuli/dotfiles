@@ -6,6 +6,7 @@ my @files = qw(
   emacs
   ghci
   gitconfig
+  gitignore
   vimrc
   xbindkeysrc
   zshrc);
