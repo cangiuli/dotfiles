@@ -83,6 +83,7 @@ set guioptions-=T
 set guioptions-=L
 if has("gui_running")
   colorscheme solarized
+  set background=light
 endif
 
 " vim 8+: asynchronous jobs
@@ -104,4 +105,5 @@ function! AsyncCmdExit(j,status)
   endif
   echo 'Exited with status '.a:status
   unlet g:asyncBuf
+  redraw!
 endfunction
