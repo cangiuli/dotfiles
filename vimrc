@@ -18,7 +18,12 @@ set belloff=all              " disable bell/flash
 filetype indent on           " use filetype-specific indentation
 filetype plugin on           " use filetype-specific plugins
 
+if ($VIM_TERMINAL)
+  syntax off
+endif
+
 " bindings
+let maplocalleader=","
 nmap <F5> :make!<CR><CR><CR>
 nnoremap <C-L> :nohlsearch<CR><C-L>
 
@@ -26,6 +31,7 @@ packadd! matchit
 let g:netrw_banner=0         " netrw: no banner
 let g:netrw_liststyle=3      " netrw: tree view
 let g:redprl_path = $HOME . '/sml-redprl/bin/redprl'
+let g:redtt_path = $HOME . '/Documents/redtt/_build/install/default/bin/redtt'
 au FileType redprl nnoremap <F5> :RedPRL<CR>
 
 " filetypes
