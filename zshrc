@@ -13,6 +13,10 @@ autoload -Uz compinit
 compinit
 # End of lines added by compinstall
 
+autoload -U edit-command-line
+zle -N edit-command-line
+bindkey '^x^e' edit-command-line
+
 setopt nullglob
 
 # aliases
