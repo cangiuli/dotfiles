@@ -15,12 +15,16 @@ syntax on                    " syntax highlighting
 set foldmethod=marker        " allow persistent folds
 set hlsearch                 " highlight search matches
 set belloff=all              " disable bell/flash
+set laststatus=2             " always show status line
 filetype indent on           " use filetype-specific indentation
 filetype plugin on           " use filetype-specific plugins
 
 if ($VIM_TERMINAL)
   syntax off
 endif
+
+set rtp+=~/.fzf
+nnoremap <C-p> :Files<CR>
 
 " bindings
 let maplocalleader=","
@@ -44,6 +48,7 @@ au BufNewFile,BufRead *.agda setf agda                   " Agda
 au BufNewFile,BufRead *.smt2 setf lisp                   " SMT 2
 au BufNewFile,BufRead *.sig,*.fun setf sml               " SML
 au BufNewFile,BufRead *.ctt setf cubicaltt               " cubicaltt
+au BufNewFile,BufRead *.ytt setf cubicaltt               " yacctt
 
 " special filetype behaviors
 au FileType make setlocal noexpandtab    " use literal tabs in Makefiles

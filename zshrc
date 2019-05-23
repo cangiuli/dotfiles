@@ -33,10 +33,9 @@ PROMPT='%n@%m:%~$ '
 export PAGER=less
 export EDITOR=vim
 
-export PATH=~/.smackage/bin:$PATH
 export PATH=~/.cabal/bin:$PATH
-export PATH=~/bin:$PATH
-export PATH=/opt/local/bin:$PATH # local coq install
+export PATH=/usr/racket/bin:$PATH
+export PATH=/usr/local/texlive/2019/bin/x86_64-linux:$PATH
 
 # functions
 # other afs incantations: fs sa, fs la
@@ -44,7 +43,10 @@ export PATH=/opt/local/bin:$PATH # local coq install
 sigbovik () {
   aklog club.cc.cmu.edu && pushd /afs/club.cc.cmu.edu/user/bovik/www/sigbovik
 }
-fliptable() {
-  echo "（╯°□°）╯︵ ┻━┻"
-}
 
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+export FZF_DEFAULT_COMMAND='
+  (git ls-tree -r --name-only HEAD ||
+   find . -path "*/\.*" -prune -o -type f -print -o -type l -print |
+      sed s/^..//) 2> /dev/null'
