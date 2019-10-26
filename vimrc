@@ -23,13 +23,11 @@ if ($VIM_TERMINAL)
   syntax off
 endif
 
+" fzf.vim, gruvbox, vim-redprl, vim-redtt, vimtex
 set rtp+=~/.fzf
 nnoremap <C-p> :Files<CR>
 
-" bindings
-let maplocalleader=","
-nmap <F5> :make!<CR><CR><CR>
-nnoremap <C-L> :nohlsearch<CR><C-L>
+let g:vimtex_imaps_enabled = 0
 
 packadd! matchit
 let g:netrw_banner=0         " netrw: no banner
@@ -37,6 +35,10 @@ let g:netrw_liststyle=3      " netrw: tree view
 let g:redprl_path = $HOME . '/sml-redprl/bin/redprl'
 let g:redtt_path = $HOME . '/Documents/redtt/_build/install/default/bin/redtt'
 au FileType redprl nnoremap <F5> :RedPRL<CR>
+
+" bindings
+let maplocalleader=","
+nnoremap <C-L> :nohlsearch<CR><C-L>
 
 " filetypes
 au BufNewFile,BufRead *.tut,*.req setf tutch             " Tutch
@@ -59,12 +61,7 @@ set lcs=tab:⇥\
 set list!
 
 " terminal escape sequences must be typed quickly, to make ^[O bearable
-set timeout timeoutlen=5000 ttimeoutlen=100
-
-" use more colors unless your terminal is awful
-if &t_Co == 8 && $TERM !~# '^linux'
-  set t_Co=16
-endif
+set timeout timeoutlen=500 ttimeoutlen=100
 
 " comments are dark green as nature intended, instead of bright cyan
 hi Comment ctermfg=DarkGreen
@@ -82,10 +79,6 @@ function! TexSettings()
   setlocal indentexpr=
 endfunction
 
-" text objects for inline math
-onoremap <silent> a$ :<C-u>normal F$vf$<CR>
-onoremap <silent> i$ :<C-u>normal T$vt$<CR>
-
 " gvim-specific settings
 au GuiEnter * set belloff=all
 set guioptions-=m
@@ -93,7 +86,7 @@ set guioptions-=r
 set guioptions-=T
 set guioptions-=L
 if has("gui_running")
-  colorscheme solarized
+  colorscheme gruvbox
   set background=light
 endif
 

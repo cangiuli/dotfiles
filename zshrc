@@ -27,6 +27,7 @@ alias scheme='petite'
 alias emacs='emacs -nw'
 alias sl='sl -e'
 alias gvim="gvim 2>/dev/null"
+alias -s pdf=xdg-open
 
 # environment
 PROMPT='%n@%m:%~$ '
@@ -36,6 +37,7 @@ export EDITOR=vim
 export PATH=~/.cabal/bin:$PATH
 export PATH=/usr/racket/bin:$PATH
 export PATH=/usr/local/texlive/2019/bin/x86_64-linux:$PATH
+export PATH=~/agda/.cabal-sandbox/bin:$PATH
 
 # functions
 # other afs incantations: fs sa, fs la
