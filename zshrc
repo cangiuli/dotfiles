@@ -22,10 +22,6 @@ setopt nullglob
 # aliases
 alias ls='ls --color=auto'
 alias grep='grep --color=auto'
-alias objdumpi='objdump -Mintel_syntax'
-alias scheme='petite'
-alias emacs='emacs -nw'
-alias sl='sl -e'
 alias gvim="gvim 2>/dev/null"
 alias -s pdf=xdg-open
 
@@ -45,6 +41,9 @@ export PATH=~/agda/.cabal-sandbox/bin:$PATH
 sigbovik () {
   aklog club.cc.cmu.edu && pushd /afs/club.cc.cmu.edu/user/bovik/www/sigbovik
 }
+
+# opam configuration
+test -r /home/carlo/.opam/opam-init/init.zsh && . /home/carlo/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
