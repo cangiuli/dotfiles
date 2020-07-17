@@ -1,3 +1,4 @@
 .*.agda.vim
 .*.swp
 tags
+/.vscode
