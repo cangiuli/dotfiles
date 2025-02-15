@@ -3,7 +3,6 @@
 use POSIX 'strftime';
 
 my @files = qw(
-  emacs
   gitconfig
   gitignore
   vimrc

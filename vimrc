@@ -24,10 +24,14 @@ if ($VIM_TERMINAL)
 endif
 
 " fzf.vim, gruvbox, vim-redprl, vim-redtt, vimtex
-set rtp+=~/.fzf
+set runtimepath+=~/.fzf
 nnoremap <C-p> :Files<CR>
+nnoremap <C-j> :RG<CR>
 
 let g:vimtex_imaps_enabled = 0
+let g:vimtex_matchparen_enabled = 0
+let g:vimtex_view_method = has("mac") ? "skim" : "zathura"
+au FileType tex setlocal indentexpr=
 
 packadd! matchit
 let g:netrw_banner=0         " netrw: no banner
@@ -56,7 +60,7 @@ au BufNewFile,BufRead *.ytt setf cubicaltt               " yacctt
 au FileType make setlocal noexpandtab    " use literal tabs in Makefiles
 au FileType scheme syn sync minlines=100 " handle long comments in ChezWEB
 
-" show explicit tab characters; messes up PuTTY
+" show explicit tab characters
 set lcs=tab:⇥\ 
 set list!
 
@@ -65,19 +69,6 @@ set timeout timeoutlen=500 ttimeoutlen=100
 
 " comments are dark green as nature intended, instead of bright cyan
 hi Comment ctermfg=DarkGreen
-
-" in tex files, default to making with pdflatex
-au FileType tex call TexSettings()
-function! TexSettings()
-  if (v:version < 800)
-    if !(filereadable('Makefile') || filereadable('makefile'))
-      setlocal makeprg=pdflatex\ %
-    endif
-  else
-    nmap <buffer> <F5> :call AsyncCmd('make')<CR>
-  end
-  setlocal indentexpr=
-endfunction
 
 " gvim-specific settings
 au GuiEnter * set belloff=all
@@ -88,26 +79,9 @@ set guioptions-=L
 if has("gui_running")
   colorscheme gruvbox
   set background=light
-endif
-
-" vim 8+: asynchronous jobs
-function! AsyncCmd(cmd)
-  if (v:version < 800 || exists('g:asyncBuf'))
-    return
-  endif
-  let j = job_start(a:cmd, {'exit_cb': 'AsyncCmdExit',
-    \'out_io': 'buffer','out_msg': 0})
-  let g:asyncBuf = ch_getbufnr(j, 'out')
-endfunction
-
-function! AsyncCmdExit(j,status)
-  if (a:status)
-    execute 'botright 10 split +buffer'.g:asyncBuf
-    normal G
+  if has("mac")
+    set guifont=PragmataPro\ Mono:h16
   else
-    execute 'bwipeout '.g:asyncBuf
+    set guifont=PragmataPro\ Mono\ 13
   endif
-  echo 'Exited with status '.a:status
-  unlet g:asyncBuf
-  redraw!
-endfunction
+endif
