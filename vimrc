@@ -23,8 +23,12 @@ if ($VIM_TERMINAL)
   syntax off
 endif
 
-" fzf.vim, gruvbox, vim-redprl, vim-redtt, vimtex
-set runtimepath+=~/.fzf
+" fzf.vim, gruvbox, vim-redprl, vim-redtt, vimtex, coqtail
+if has("mac")
+  set runtimepath+=/opt/homebrew/opt/fzf
+else
+  set runtimepath+=~/.fzf
+endif
 nnoremap <C-p> :Files<CR>
 nnoremap <C-j> :RG<CR>
 
@@ -55,6 +59,7 @@ au BufNewFile,BufRead *.smt2 setf lisp                   " SMT 2
 au BufNewFile,BufRead *.sig,*.fun setf sml               " SML
 au BufNewFile,BufRead *.ctt setf cubicaltt               " cubicaltt
 au BufNewFile,BufRead *.ytt setf cubicaltt               " yacctt
+au BufNewFile,BufRead *.lagda setf agda                  " literate Agda
 
 " special filetype behaviors
 au FileType make setlocal noexpandtab    " use literal tabs in Makefiles
@@ -85,3 +90,22 @@ if has("gui_running")
     set guifont=PragmataPro\ Mono\ 13
   endif
 endif
+
+digraph NN 8469 " ℕ
+digraph QQ 8474 " ℚ
+
+" Beamer screenshots: Chrome print to PDF (bg graphics, no margin)
+let g:html_font="PragmataPro"
+
+let g:coqtail_build_system="prefer-coqproject"
+digraph +2 10815 " ⨿
+digraph [[ 10214 " ⟦
+digraph ]] 10215 " ⟧
+function CoqtailHookDefineMappings()
+  imap <buffer> <S-Down> <Plug>CoqNext
+  imap <buffer> <S-Left> <Plug>CoqToLine
+  imap <buffer> <S-Up> <Plug>CoqUndo
+  nmap <buffer> <S-Down> <Plug>CoqNext
+  nmap <buffer> <S-Left> <Plug>CoqToLine
+  nmap <buffer> <S-Up> <Plug>CoqUndo
+endfunction
