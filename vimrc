@@ -16,7 +16,6 @@ set foldmethod=marker        " allow persistent folds
 set hlsearch                 " highlight search matches
 set belloff=all              " disable bell/flash
 set laststatus=2             " always show status line
-filetype indent on           " use filetype-specific indentation
 filetype plugin on           " use filetype-specific plugins
 
 if ($VIM_TERMINAL)
@@ -35,9 +34,8 @@ nnoremap <C-j> :RG<CR>
 
 " github.com/lervag/vimtex.git
 let g:vimtex_imaps_enabled = 0
-let g:vimtex_matchparen_enabled = 0
+let g:vimtex_indent_enabled = 0
 let g:vimtex_view_method = has("mac") ? "skim" : "zathura"
-au FileType tex setlocal indentexpr=
 
 packadd! matchit
 let g:netrw_banner=0         " netrw: no banner
