@@ -1,14 +1,6 @@
 [user]
-	name = Carlo Angiuli
-	email = carlo@carloangiuli.com
-
-[color]
-	ui = true
-
-[alias]
-	vimdiff = difftool --tool=vimdiff --no-prompt
-	co = checkout
-	ci = commit
+  name = Carlo Angiuli
+  email = carlo@carloangiuli.com
 
 [core]
-	excludesfile = ~/.gitignore
+  excludesFile = ~/.gitignore

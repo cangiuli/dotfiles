@@ -14,6 +14,7 @@ set smartindent              " indent in a C-like fashion
 syntax on                    " syntax highlighting
 set foldmethod=marker        " allow persistent folds
 set hlsearch                 " highlight search matches
+set incsearch
 set belloff=all              " disable bell/flash
 set laststatus=2             " always show status line
 filetype plugin on           " use filetype-specific plugins
